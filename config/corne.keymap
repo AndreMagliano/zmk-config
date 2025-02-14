@@ -11,6 +11,9 @@
 #define MEH LC(LS(LALT))
 #define HYPER LC(LS(LA(LGUI)))
 
+#define HRML(k1,k2,k3,k4) &mt LSHIFT k1   &mt LCTRL k2    &mt LALT k3    &mt LGUI k4
+#define HRMR(k1,k2,k3,k4) &mt RGUI k1     &mt RALT k2     &mt RCTRL k3   &mt RSHIFT k4
+
 / {
         keymap {
                 compatible = "zmk,keymap";
@@ -22,9 +25,15 @@
 // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
-   &kp TAB    &kp Q  &kp W  &kp F  &kp P  &kp B     &kp J   &kp L   &kp U      &kp Y    &kp SEMI  &kp BSPC
-   &kp LCTRL  &kp A  &kp R  &kp S  &kp T  &kp G     &kp M   &kp N   &kp E      &kp I    &kp O     &kp SQT
-   &kp LSHFT  &kp Z  &kp X  &kp C  &kp D  &kp V     &kp K   &kp H   &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
+//        ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮     ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮                    
+//        │     *     │     Q     │     W     │     F     │     P     │     B     │     │     J     │     L     │     U     │     Y     │     ;     │     *     │
+             &kp TAB      &kp Q       &kp W       &kp F       &kp P       &kp B             &kp J       &kp L       &kp U      &kp Y       &kp SEMI    &kp BSPC
+//        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
+//        │     *     │ A (Shift) │  R (Ctrl) │  S (ALT)  │ T (Super) │     G     │     │     M     │ N (Super) │  E (Alt)  │  I (Ctrl) │ O (Shift) │     *     │                                                                                                                                                  ACE │
+            &kp LCTRL    HRML(A,        R,          S,          T)          G              &kp M       HRMR(N,        E,          I,          O)       &kp SQT
+//        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
+//        │     *     │     Z     │     X     │     C     │     D     │     V     │     │     K     │     H     │     ,     │     .     │     /     │     *     │                                                                                                                                                  ACE │
+            &kp LSHFT     &kp Z       &kp X       &kp C       &kp D       &kp V             &kp K      &kp H      &kp COMMA    &kp DOT    &kp FSLH     &kp ESC
                       &kp MEH &mo 1  &kp SPACE   &kp RET  &mo 2  &kp HYPER
                         >;
                 };
