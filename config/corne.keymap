@@ -22,7 +22,7 @@
                 bindings
                         = <&macro_press &kp LGUI>
                         , <&macro_param_1to1>
-                        , <&kp MACRO_PLACEHOLDER>
+                        , <&macro_tap &kp MACRO_PLACEHOLDER>
                         , <&macro_release &kp LGUI>
                         ;
                 };
@@ -33,7 +33,7 @@
                 bindings
                         = <&macro_tap &kp LCTRL &kp B>
                         , <&macro_param_1to1>
-                        , <&kp MACRO_PLACEHOLDER>
+                        , <&macro_tap &kp MACRO_PLACEHOLDER>
                         , <&macro_release &kp LGUI>
                         ;
                 };
