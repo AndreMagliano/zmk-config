@@ -15,6 +15,31 @@
 #define HRMR(k1,k2,k3,k4) &mt RGUI k1     &mt RALT k2     &mt RCTRL k3   &mt RSHIFT k4
 
 / {
+        macros {
+                m_gui: m_gui {
+                compatible = "zmk,behavior-macro-one-param";
+                #binding-cells = <1>;
+                bindings
+                        = <&macro_press &kp LGUI>
+                        , <&macro_param_1to1>
+                        , <&kp MACRO_PLACEHOLDER>
+                        , <&macro_release &kp LGUI>
+                        ;
+                };
+
+                m_tcmd: m_tcmd {
+                compatible = "zmk,behavior-macro-one-param";
+                #binding-cells = <1>;
+                bindings
+                        = <&macro_tap &kp LCTRL &kp B>
+                        , <&macro_param_1to1>
+                        , <&kp MACRO_PLACEHOLDER>
+                        , <&macro_release &kp LGUI>
+                        ;
+                };
+
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -30,7 +55,7 @@
 //        │     *     │     Z     │     X     │     C     │     D     │     V     │     │     K     │     H     │     ,     │     .     │     /     │     *     │                                                                                                                                                  ACE │
               &to 1      &kp Z       &kp X       &kp C       &kp D       &kp V              &kp K      &kp H      &kp COMMA    &kp DOT    &kp FSLH      &to 2
 //        ╰───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────╯  
-                                                 &kp MEH    &lt 1 TAB  &lt 3 SPACE         &kp RET   &lt 2 BSPC   &kp HYPER
+                                                 &kp MEH    &lt 1 TAB  &lt 3 SPACE        &lt 4 RET   &lt 2 BSPC  &kp HYPER
 //                                            ╰───────────┴───────────┴───────────╯     ╰───────────┴───────────┴───────────╯
                         >;
                 };
@@ -63,6 +88,23 @@
 //        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
 //        │     *     │     >     │     )     │     }     │     ]     │     /     │     │     :     │     _     │     @     │     #     │     $     │     *     │                                                                                                                                                  ACE │
               &none       &kp GT     &kp RPAR    &kp RBRC    &kp RBKT    &kp FSLH         &kp COLON   &kp UNDER     &kp AT     &kp HASH    &kp DLLR     &to 0
+//        ╰───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────╯  
+                                                  &trans     &trans       &trans           &trans      &trans       &trans
+//                                            ╰───────────┴───────────┴───────────╯     ╰───────────┴───────────┴───────────╯
+                        >;
+                };
+
+                cmd_layer {
+                        bindings = <
+//        ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮     ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮                    
+//        │     *     │     *     │     *     │     *     │     *     │     *     │     │     *     │     *     │     *     │     *     │     *     │     *     │
+              &none       &none      &none       &none       &none      &none               &none       &none       &none       &none       &none       &none
+//        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
+//        │     *     │     *     │     *     │     *     │     *     │     *     │     │     *     │     *     │     *     │     *     │     *     │     *     │                                                                                                                                                  ACE │
+              &none       &trans     &trans      &trans       &trans      &none          &m_gui LEFT  &m_gui N1   &m_gui N2   &m_gui N3   &m_gui N4  &m_gui RIGHT
+//        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
+//        │     *     │     *     │     *     │     *     │     *     │     *     │     │     *     │     H     │     J     │     K     │     L     │     *     │                                                                                                                                                  ACE │
+              &none       &none      &none      &m_tcmd C     &none       &none           &m_tcmd P   &m_tcmd N0  &m_tcmd N1  &m_tcmd N2  &m_tcmd N3  &m_tcmd N
 //        ╰───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────╯  
                                                   &trans     &trans       &trans           &trans      &trans       &trans
 //                                            ╰───────────┴───────────┴───────────╯     ╰───────────┴───────────┴───────────╯
