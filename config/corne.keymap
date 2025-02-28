@@ -11,8 +11,8 @@
 #define MEH LC(LS(LALT))
 #define HYPER LC(LS(LA(LGUI)))
 
-#define HRML(k1,k2,k3,k4) &mt LSHIFT k1   &mt LCTRL k2    &mt LALT k3    &mt LGUI k4
-#define HRMR(k1,k2,k3,k4) &mt RGUI k1     &mt RALT k2     &mt RCTRL k3   &mt RSHIFT k4
+#define HRML(k1,k2,k3,k4) &mt LALT k1   &mt LCTRL k2    &mt LSHIFT k3    &mt LGUI k4
+#define HRMR(k1,k2,k3,k4) &mt RGUI k1   &mt RSHIFT k2   &mt RCTRL k3     &mt RALT k4
 
 / {
         macros {
@@ -49,7 +49,7 @@
 //        │     *     │     Q     │     W     │     F     │     P     │     B     │     │     J     │     L     │     U     │     Y     │     ;     │     *     │
              &kp ESC      &kp Q       &kp W       &kp F       &kp P       &kp B             &kp J       &kp L       &kp U      &kp Y       &kp SEMI    &kp BSPC
 //        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
-//        │     *     │ A (Shift) │  R (Ctrl) │  S (Alt)  │ T (Super) │     G     │     │     M     │ N (Super) │  E (Alt)  │  I (Ctrl) │ O (Shift) │     *     │                                                                                                                                                  ACE │
+//        │     *     │  A (Alt)  │  R (Ctrl) │ S (Shift) │ T (Super) │     G     │     │     M     │ N (Super) │ E (Shift) │  I (Ctrl) │  O (Alt)  │     *     │                                                                                                                                                  ACE │
               &to 5      HRML(A,        R,          S,          T)        &kp G              &kp M      HRMR(N,        E,          I,          O)       &none
 //        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
 //        │     *     │     Z     │     X     │     C     │     D     │     V     │     │     K     │     H     │     ,     │     .     │     /     │     *     │                                                                                                                                                  ACE │
@@ -98,7 +98,7 @@
                         bindings = <
 //        ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮     ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮                    
 //        │     *     │     *     │     *     │     *     │     *     │     *     │     │     *     │     *     │     *     │     *     │     *     │     *     │
-              &none       &none      &none       &none       &none      &none               &none       &none       &none       &none       &none       &none
+              &kp F1     &kp F2       &kp F3      &kp F4      &kp F5      &kp F6            &kp F7     &kp F8       &kp F9     &kp F10     &kp F11     &kp F12
 //        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
 //        │     *     │     *     │     *     │     *     │     *     │     *     │     │     *     │     *     │     *     │     *     │     *     │     *     │                                                                                                                                                  ACE │
               &none       &trans     &trans      &trans       &trans      &none          &m_gui LEFT  &m_gui N1   &m_gui N2   &m_gui N3   &m_gui N4  &m_gui RIGHT
@@ -115,13 +115,13 @@
                         bindings = <
 //        ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮     ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮                    
 //        │     *     │     *     │     *     │     *     │     *     │     *     │     │     *     │     *     │     *     │     *     │     *     │     *     │
-              &none       &none      &none       &none       &none      &none               &none       &none       &none       &none       &none       &none
+              &none       &none      &none       &none       &none        &none             &none       &none       &none       &none       &none       &none
 //        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
 //        │     *     │     *     │     *     │     *     │     *     │     *     │     │     *     │     *     │     *     │     *     │     *     │     *     │                                                                                                                                                  ACE │
-              &none       &trans     &trans      &trans       &trans      &none             &none     &kp LEFT    &kp DOWN     &kp UP     &kp RIGHT    &none
+              &none       &trans     &trans      &trans       &trans      &none            &kp HOME   &kp LEFT    &kp DOWN     &kp UP     &kp RIGHT     &none
 //        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
 //        │     *     │     *     │     *     │     *     │     *     │     *     │     │     *     │     H     │     J     │     K     │     L     │     *     │                                                                                                                                                  ACE │
-              &none       &none      &none       &none        &none       &none             &none       &kp H       &kp J       &kp K       &kp L       &none
+              &none       &none      &none       &none        &none       &none            &kp END      &kp H       &kp J       &kp K       &kp L       &none
 //        ╰───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────╯  
                                                   &trans     &trans       &trans           &trans      &trans       &trans
 //                                            ╰───────────┴───────────┴───────────╯     ╰───────────┴───────────┴───────────╯
@@ -134,7 +134,7 @@
                                 &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
                                 &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
                                 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                                                &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+                                               &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
                         >;
                 };
         };        
