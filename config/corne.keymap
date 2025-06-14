@@ -27,14 +27,15 @@
                         ;
                 };
 
-                m_tcmd: m_tcmd {
+                m_tmux: m_tmux {
                 compatible = "zmk,behavior-macro-one-param";
                 #binding-cells = <1>;
                 bindings
-                        = <&macro_tap &kp LCTRL &kp B>
+                        = <&macro_press &kp LCTRL>
+                        , <&macro_tap &kb B>
+                        , <&macro_release &kb LCTRL>
                         , <&macro_param_1to1>
                         , <&macro_tap &kp MACRO_PLACEHOLDER>
-                        , <&macro_release &kp LGUI>
                         ;
                 };
 
@@ -50,7 +51,7 @@
              &kp ESC      &kp Q       &kp W       &kp F       &kp P       &kp B             &kp J       &kp L       &kp U      &kp Y       &kp SEMI    &kp BSPC
 //        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
 //        │     *     │  A (Alt)  │  R (Ctrl) │ S (Shift) │ T (Super) │     G     │     │     M     │ N (Super) │ E (Shift) │  I (Ctrl) │  O (Alt)  │     *     │                                                                                                                                                  ACE │
-              &to 5      HRML(A,        R,          S,          T)        &kp G              &kp M      HRMR(N,        E,          I,          O)       &none
+           &kt LSHIFT    HRML(A,        R,          S,          T)        &kp G             &kp M      HRMR(N,        E,          I,          O)        &to 5
 //        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
 //        │     *     │     Z     │     X     │     C     │     D     │     V     │     │     K     │     H     │     ,     │     .     │     /     │     *     │                                                                                                                                                  ACE │
               &to 1      &kp Z       &kp X       &kp C       &kp D       &kp V              &kp K      &kp H      &kp COMMA    &kp DOT    &kp FSLH      &to 2
@@ -104,7 +105,7 @@
               &none       &trans     &trans      &trans       &trans      &none          &m_gui LEFT  &m_gui N1   &m_gui N2   &m_gui N3   &m_gui N4  &m_gui RIGHT
 //        ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                                                                                                                  ────┤
 //        │     *     │     *     │     *     │     *     │     *     │     *     │     │     *     │     H     │     J     │     K     │     L     │     *     │                                                                                                                                                  ACE │
-              &none       &none      &none      &m_tcmd C     &none       &none           &m_tcmd P   &m_tcmd N0  &m_tcmd N1  &m_tcmd N2  &m_tcmd N3  &m_tcmd N
+              &none       &none      &none      &m_tmux C     &none       &none         &m_tmux PRCNT &m_tmux N0  &m_tmux N1  &m_tmux N2  &m_tmux N3  &m_tmux DQT
 //        ╰───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤     ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────╯  
                                                   &trans     &trans       &trans           &trans      &trans       &trans
 //                                            ╰───────────┴───────────┴───────────╯     ╰───────────┴───────────┴───────────╯
@@ -132,7 +133,7 @@
                 game_layer {
                         bindings = <
                                 &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-                                &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+                                &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &to 0
                                 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
                                                &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
                         >;
